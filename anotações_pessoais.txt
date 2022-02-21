@@ -1,0 +1,19 @@
+tipos:
+literal
+inteiro
+real
+caracter 
+logico
+VERDADEIRO
+LOGICO
+
+se cond entao
+	cod
+senao se cond
+	cod
+senao
+
+nome: literal
+Escreval()
+leia(var)
+atr <- atr
