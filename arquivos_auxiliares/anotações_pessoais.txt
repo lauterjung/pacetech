@@ -1,0 +1,40 @@
+tipos:
+literal
+inteiro
+real
+caracter 
+logico
+VERDADEIRO
+LOGICO
+
+se cond entao
+	cod
+senao se cond
+	cod
+senao
+
+<>
+
+escolha leia
+caso x
+	cod
+caso y
+	cod2
+outrocaso
+	co3
+
+enquanto cond faça
+
+fimenquanto
+
+
+se entao interrompa
+
+nome: literal
+Escreval()
+leia(var)
+atr <- atr
+
+
+
+para i de 0 a 10 passo 1 faca

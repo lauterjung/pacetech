@@ -1,0 +1,19 @@
+Um cliente irá fazer uma viagem para os EUA nos próximos dias, e solicitou para a Pacetech a construção de uma ferramenta para lhe ajudar em relação a Temperatura e Moeda.
+
+Como nos EUA a moeda padrão é o dólar, o cliente precisará constantemente realizar conversões de real para dólar e vice e versa. Ao mesmo tempo, para saber o que esperar durante o dia em relação ao clima e temperatura, o cliente também precisará compreender as temperaturas que geralmente são listadas em Fahrenheit.
+
+Diante disto, para facilitar o dia a dia do cliente nos EUA, foi solicitado o seguinte programa no Visual G.
+
+-Consta nos requisitos de sistema, que o programa deve:
+-Converter temperatura de Celsius para Fahrenheit e vice e versa.
+-Converter moeda de Reais para Dólares e vice e versa.
+-Ao abrir o programa, deve-se solicitar ao usuário a cotação do dólar, para que este valor seja considerado nos cálculos de conversão de moeda. Exemplo: Hoje para comprar U$: 1 dólar eu preciso de R$: 5,20 reais.
+-Deve-se apresentar um menu ao usuário para saber qual o tipo de conversão deverá ser realizado. Exemplo:
+       Celsius para Fahrenheit ou Fahrenheit para Celsius.
+	   Reais para Dólar ou Dólar para Reais.
+	   
+Importante: O usuário pode querer realizar mais de uma conversão. Sendo assim, sempre após uma conversão, deve-se perguntar se o usuário gostaria de realizar mais alguma conversão ou se o programa pode ser finalizado.
+
+A entrega desta atividade deve ser o arquivo com o fonte do VisualG, que deve ser postado no seu GitHub no repositório da Pacetech!
+
+Informar na missão o link do seu GitHub que contém o fonte do programa solicitado.
