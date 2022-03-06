@@ -1,4 +1,4 @@
-tipos:
+﻿tipos:
 literal
 inteiro
 real
@@ -35,6 +35,49 @@ Escreval()
 leia(var)
 atr <- atr
 
+para i de 0 ate 10 passo 1 faca
+
+vetorNome: vetor[1..5] de literal
+vetorNome[1] <- "teste"
+
+se nomes[i] = pesquisa
+
+bolha
+numeros: vetor[1..10] de inteiro
+i,j,aux: inteiro
+
+para i de 1 ate 10 faca
+	Escreval("Numero ", i)
+	leia(numeros[i])
+
+para i de 1 ate 10 faca
+	para j de 1 ate 10 faca
+		se numeros[j] > numeros[i]
+		aux <- numeros[i]
+		numeros[i] <- numeros[j]
+		numeros[j] <- aux
+	fimpara
+fimpara
 
 
-para i de 0 a 10 passo 1 faca
+matrizes
+cinema: vetor[1..10, 1..10]
+cinema[i,j]
+
+
+// função retorna
+// procedimento nao
+procedimento somar(i,j:inteiro)
+var
+inicio
+	resultado <- i + j
+fimprocedimento
+
+função somar(i,j:inteiro): inteiro
+var
+inicio
+	retorne i + j
+fimprocedimento
+
+se x
+interrompa

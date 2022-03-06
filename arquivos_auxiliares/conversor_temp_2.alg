@@ -1,7 +1,4 @@
 algoritmo "Conversor EUA"
-//tentei formatar o número de dígitos antes da vírgula, mas sem sucesso nessa linguagem:
-//digitos <- int(Compr(numpcarac(int(valor_dolar))))
-//valor_dolar:digitos:2
 
 var
 programa_ligado: logico
@@ -50,7 +47,7 @@ enquanto programa_ligado faca
       interrompa
       
    outrocaso
-      escreval("Não entendi o comando. Digite novamente o comando da operação desejada")
+      escreval("Não entendi o comando.")
 
    fimescolha
 

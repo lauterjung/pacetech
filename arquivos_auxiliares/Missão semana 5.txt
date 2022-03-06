@@ -1,0 +1,27 @@
+Nosso conversor de temperatura, construido nas últimas aulas, precisa de um upgrade (novas funcionalidades solicitadas pelo cliente 🙂). Para isto precisamos realizar as seguintes melhorias:
+
+1) Perguntar qual conversão deve ser realizada (Celsius para Fahrenheit ou Fahrenheit para Celsius). 👉Sugestão: (pode-se utilizar o recurso de Função para não duplicar o código de conversão de temperatura).
+
+- O usuário possui 4 temperaturas que ele registrou ao longo do dia e gostaria de armazenar no programa para posterior consulta. Para isso deve-se:
+
+  2) Perguntar e armazenar (👉sugestão: utilizar vetor): Hora em que a temperatura foi medida.
+
+  3) Perguntar e armazenar (👉sugestão: utilizar vetor): Valor da temperatura a ser convertida.
+
+3) Após o usuário registrar as 4 temperaturas, imprimir o resultado. IMPORTANTE: a impressão deve ser feita de forma ordenada (da menor temperatura para a maior temperatura digitada. 👉 Sugestão método da Bolha).
+
+Exemplo de resultado final:
+
+Temperatura 5 graus Celsius, registrada as 10h corresponde a 41 graus Fahrenheit.
+
+Temperatura 10 graus Celsius, registrada as 17h corresponde a 50 graus Fahrenheit.
+
+Temperatura 15 graus Celsius, registrada as 11h corresponde a 59 graus Fahrenheit.
+
+Temperatura 16 graus Celsius, registrada as 15h corresponde a 60,8 graus Fahrenheit.
+
+......
+
+A entrega desta atividade deve ser o arquivo com o fonte do VisualG, que deve ser postado no seu GitHub no repositório da Pacetech!
+
+Informar na missão o link do seu GitHub que contém o fonte do programa solicitado.
