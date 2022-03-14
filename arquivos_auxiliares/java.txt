@@ -1,0 +1,165 @@
+package ConversorEUA;
+
+import java.util.Scanner;
+
+public class Main {
+    static Scanner scan = new Scanner(System.in);
+    
+    public static void menu() {
+        System.out.println("Operações de Conversão\n\n"
+        + "Temperatura\n"
+        + "(a) Celsius (°C) para Fahrenheit (°F)\n"
+        + "(b) Fahrenheit (°F) para Celsius (°C)\n"
+        + "Moeda\n"
+        + "(c) Real para Dólar\n"
+        + "(d) Dólar para Real\n"
+        + "(q) Sair\n\n"
+        + "Digite a tecla correspondente de qual operação você deseja realizar");
+//        Scanner scan = new Scanner(System.in);
+        String userInput = scan.next();
+                
+        switch(userInput){
+        case "a":
+            celsius_to_fahrenheit();
+        break;
+
+        case "b":
+            fahrenheit_to_celsius();
+        break;
+
+        case "c":
+            real_to_dolar();
+        break;
+
+        case "d":
+            dolar_to_real();
+        break;
+
+        case "q":
+            boolean programOn = false; // return globla
+        break;
+
+        default:
+        System.out.println("Não entendi a operação.");              
+  }
+}
+    
+    public static void newOperation() {
+        String newOperation = "";
+        while((newOperation != "s") && (newOperation != "n")) {
+            System.out.println("Deseja fazer nova operação? (s/n)");
+//            Scanner scan = new Scanner(System.in);
+            newOperation = scan.next();
+            System.out.print("\033[H\033[2J"); // limpatela
+            if(newOperation == "n"){
+                boolean programOn = false; // retornar global
+            }
+        }
+    }
+
+    public static void celsius_to_fahrenheit() {
+        System.out.println("Informe a temperatura (°C):");
+//        Scanner scan = new Scanner(System.in);
+        double tempCelsius = scan.nextDouble();
+        double tempFahrenheit = tempCelsius*1.8+32;
+        System.out.println("a");
+    }
+    
+    public static void fahrenheit_to_celsius() {
+        System.out.println("Informe a temperatura (°F):");
+//        Scanner scan = new Scanner(System.in);
+        double tempFahrenheit = scan.nextDouble();
+        double tempCelsius = (tempFahrenheit-32)/1.8;
+        System.out.println("a");
+    }
+    
+    public static void real_to_dolar() {
+//        Scanner scan = new Scanner(System.in);
+        System.out.println("Informe o valor do dólar:");
+        double valorReal = scan.nextDouble();
+        double cotacaoDolar = scan.nextDouble();
+        double valorDolar = valorReal/cotacaoDolar;
+        System.out.println("a");
+    }
+    
+    public static void dolar_to_real() {
+        System.out.println("Informe o valor do dólar:");
+//        Scanner scan = new Scanner(System.in);
+        double valorDolar = scan.nextDouble();
+        double cotacaoDolar = scan.nextDouble();
+        double valorReal = valorDolar*cotacaoDolar;
+        System.out.println("a");
+    }
+    
+    
+    public static void main(String[] args) {
+//      Scanner scan = new Scanner(System.in);
+        boolean programOn = true;
+        while(programOn){
+           menu();
+           newOperation();
+           }     
+        }
+}
+
+CTRL SHIFT F
+
+System.out.println("");
+Encoding
+	netbeans\etc\conf
+	netbeans_default_options
+	 -J-Dfile.encoding=UTF-8
+	 
+System.out.println("Abc" + var);
+
+coments
+// coment
+
+/*
+ Long
+ Coment
+*/
+
+/**
+ Doc
+ String
+*/
+
+import java.util.Scanner;
+int idade = 0;
+double x = 5.0f
+float x = 5.0d
+boolean x = false;
+char x = 'M';
+byte x = 0;
+
+String
+
+// Condicionais
+if(cond){
+	code
+} else {
+	code
+}
+
+switch(varControle){
+	case 1:
+		Cod
+		break;
+		
+	case 2:
+		Cod
+		break;
+		
+	default:
+		Cod
+		// break;
+}
+
+&& and
+|| or
+! not
+
+for(int = 0; i <= 10; i ++){}
+
+while(cond){}
