@@ -6,35 +6,43 @@ public class Menu {
     static Scanner scan = new Scanner(System.in);
     
     public void open() {
-        System.out.println("""
-Operações de Conversão
-		
-Temperatura
-(a) Celsius (°C) para Fahrenheit (°F)
-(b) Fahrenheit (°F) para Celsius (°C)
-		
-Moeda
-(c) Real para Dólar
-(d) Dólar para Real
-		
-Outros
-(q) Sair
-		
-Digite a tecla correspondente de qual operação você deseja realizar""");
+        System.out.println("Operações de Conversão\r\n" + 
+        		"		\r\n" + 
+        		"Temperatura\r\n" + 
+        		"(a) Celsius (°C) para Fahrenheit (°F)\r\n" + 
+        		"(b) Fahrenheit (°F) para Celsius (°C)\r\n" + 
+        		"		\r\n" + 
+        		"Moeda\r\n" + 
+        		"(c) Real para Dólar\r\n" + 
+        		"(d) Dólar para Real\r\n" + 
+        		"		\r\n" + 
+        		"Outros\r\n" + 
+        		"(q) Sair\r\n" + 
+        		"		\r\n" + 
+        		"Digite a tecla correspondente de qual operação você deseja realizar");
         
         String userInput = scan.next().toLowerCase();
                 
         switch(userInput){
-        case "a" -> celsiusToFahrenheit();
-        case "b" -> fahrenheitToCelsius();
-        case "c" -> realToDolar();
-        case "d" -> dolarToReal();
-        case "q" -> {
+        case "a":
+        	celsiusToFahrenheit();
+        break;
+        case "b": 
+        	fahrenheitToCelsius();
+        break;
+        case "c":
+        	realToDolar();
+        break;
+        case "d":
+        	dolarToReal();
+        break;
+        case "q": {
             System.out.println("Boa estadia!");
 			scan.close();
             System.exit(0);
             }
-        default -> {
+        break;
+        default: {
         	System.out.println("Não entendi a operação.");              
         }
 		}
@@ -89,9 +97,6 @@ Digite a tecla correspondente de qual operação você deseja realizar""");
         double valorReal = valorDolar*cotacaoDolar;
         System.out.printf("%.2f dólares equivalem à %.2f reais", valorDolar, valorReal);
     }
-    
-    public void main(String[] args) {
-           open();
-    }
+
 }
 
