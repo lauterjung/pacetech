@@ -27,3 +27,5 @@ bin/
 .classpath
 .project
 .settings
+/7_Classe/nbproject/private/
+/7_Classe/build/
