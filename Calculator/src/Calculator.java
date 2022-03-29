@@ -3,7 +3,7 @@
 import com.sun.source.doctree.AttributeTree;
 import java.awt.event.KeyEvent;
 import java.lang.Math;
-        
+import java.text.DecimalFormat;
 
 public class Calculator extends javax.swing.JFrame  {
 
@@ -20,6 +20,11 @@ public class Calculator extends javax.swing.JFrame  {
     private boolean equalLastPressed;
     private boolean operationLastPressed;
     private final int MAX_DIGITS = 18;
+    private final double PRECISION = 0.0000000000001;
+            
+    private double visorToDouble(){
+        return(Double.parseDouble(jVisor.getText()));
+    }
     
     private void resetCalculator(){
         value1 = null;
@@ -77,17 +82,16 @@ public class Calculator extends javax.swing.JFrame  {
         }
     }
      
-   private void addOperation(String input) {
-        
+   private void addOperation(String input) {        
         if(value1 != null && equalLastPressed == false && operationLastPressed == false){
-            value2 = Double.parseDouble(jVisor.getText());
+            value2 = visorToDouble();
             jAuxVisor.setText(jAuxVisor.getText()+jVisor.getText());
             value1 = calculate(value1, value2, operation);
             setFormatedText(value1+"");
         }
         
         equalLastPressed = false;
-        value1 = Double.parseDouble(jVisor.getText());
+        value1 = visorToDouble();
         operation = input;
         jAuxVisor.setText(jVisor.getText() + " " + input + " ");
         resetVisor = true;  
@@ -95,8 +99,7 @@ public class Calculator extends javax.swing.JFrame  {
     }
     
     private void equalPress(){
-        String visorStr = jVisor.getText();
-        value2 = Double.parseDouble(visorStr);
+        value2 = visorToDouble();
         if(equalLastPressed){
             jAuxVisor.setText(jAuxVisor.getText()+ " " + operation + " " + jVisor.getText());
         } else {
@@ -106,9 +109,9 @@ public class Calculator extends javax.swing.JFrame  {
         equalLastPressed = true;
         operationLastPressed = false;
     }
-    
+       
     private void setFormatedText(String text) {
-
+        double doubleText;
         if(text.substring(text.length() - 2).equals(".0")){
             text = text.substring(0, text.length() - 2);
         }
@@ -118,11 +121,8 @@ public class Calculator extends javax.swing.JFrame  {
                 int sIndex = text.indexOf("E");
                 String sLeading = text.substring(0, text.length() - sIndex + 1);
                 String sTrailing = text.substring(text.length() - sIndex + 1);
-                
-                int trailingLength = sTrailing.length();
-                //int leadingLength = sLeading.length();
-                
-                sLeading = sLeading.substring(0, MAX_DIGITS - trailingLength);
+                             
+                sLeading = sLeading.substring(0, MAX_DIGITS - sTrailing.length());
                 text = sLeading + sTrailing;
             }
             else {
@@ -134,7 +134,20 @@ public class Calculator extends javax.swing.JFrame  {
             }
         }
         
+        doubleText = Double.parseDouble(text);
+        if((doubleText-(int)doubleText) < PRECISION){
+            text = (int)doubleText+"";
+        }
+        
         jVisor.setText(text);
+    }
+    
+    private void editAuxVisor(String prefix, String sufix){
+        if(jAuxVisor.getText().equals("")){
+            jAuxVisor.setText(prefix + "(" + jVisor.getText() + ")" + sufix);
+        } else{
+            jAuxVisor.setText(prefix + "(" + jAuxVisor.getText() + ")" + sufix);
+        }
     }
     
     private void keyListener(int evt){
@@ -257,11 +270,6 @@ public class Calculator extends javax.swing.JFrame  {
         jVisor.setForeground(new java.awt.Color(255, 255, 255));
         jVisor.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
         jVisor.setBorder(null);
-        jVisor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jVisorActionPerformed(evt);
-            }
-        });
 
         jPanel2.setBackground(new java.awt.Color(153, 153, 153));
         jPanel2.setAlignmentX(0.0F);
@@ -304,11 +312,6 @@ public class Calculator extends javax.swing.JFrame  {
         jButtonClearEntry.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 jButtonClearEntryMouseReleased(evt);
-            }
-        });
-        jButtonClearEntry.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonClearEntryActionPerformed(evt);
             }
         });
         jPanel2.add(jButtonClearEntry);
@@ -411,11 +414,6 @@ public class Calculator extends javax.swing.JFrame  {
         jButtonDivide.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 jButtonDivideMouseReleased(evt);
-            }
-        });
-        jButtonDivide.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonDivideActionPerformed(evt);
             }
         });
         jPanel2.add(jButtonDivide);
@@ -764,14 +762,6 @@ public class Calculator extends javax.swing.JFrame  {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jVisorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jVisorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jVisorActionPerformed
-
-    private void jButtonClearEntryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClearEntryActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonClearEntryActionPerformed
-
     private void jPanel1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanel1KeyTyped
         keyListener(evt.getKeyChar());
     }//GEN-LAST:event_jPanel1KeyTyped
@@ -784,9 +774,8 @@ public class Calculator extends javax.swing.JFrame  {
     }//GEN-LAST:event_jButton0MouseReleased
 
     private void jButtonInvertSignMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonInvertSignMouseReleased
-        String visorStr = jVisor.getText();
-        double visorDouble = Double.parseDouble(visorStr);
-        setFormatedText((-visorDouble)+"");
+        editAuxVisor("-", "");
+        jVisor.setText((-visorToDouble())+"");
     }//GEN-LAST:event_jButtonInvertSignMouseReleased
 
     private void jButtonDecimalMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonDecimalMouseReleased
@@ -846,21 +835,18 @@ public class Calculator extends javax.swing.JFrame  {
     }//GEN-LAST:event_jButtonMulitplyMouseReleased
 
     private void jButtonInvertMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonInvertMouseReleased
-        String visorStr = jVisor.getText();
-        double visorDouble = Double.parseDouble(visorStr);
-        setFormatedText((1/visorDouble)+"");
+        editAuxVisor("1/", "");
+        jVisor.setText((1/visorToDouble())+"");
     }//GEN-LAST:event_jButtonInvertMouseReleased
 
     private void jButtonSquareMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSquareMouseReleased
-        String visorStr = jVisor.getText();
-        double visorDouble = Double.parseDouble(visorStr);
-        setFormatedText(Math.pow(visorDouble, 2)+"");
+        editAuxVisor("", "²");
+        setFormatedText(Math.pow(visorToDouble(), 2)+"");
     }//GEN-LAST:event_jButtonSquareMouseReleased
 
     private void jButtonSqrtMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSqrtMouseReleased
-        String visorStr = jVisor.getText();
-        double visorDouble = Double.parseDouble(visorStr);
-        setFormatedText(Math.sqrt(visorDouble)+"");
+        editAuxVisor("√", "");
+        setFormatedText(Math.sqrt(visorToDouble())+"");
     }//GEN-LAST:event_jButtonSqrtMouseReleased
 
     private void jButtonDivideMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonDivideMouseReleased
@@ -869,9 +855,7 @@ public class Calculator extends javax.swing.JFrame  {
 
     private void jButtonPercentMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonPercentMouseReleased
         if(value1 != null) {
-            String visorStr = jVisor.getText();
-            double visorDouble = Double.parseDouble(visorStr);
-            jVisor.setText((visorDouble/100)+"");
+            jVisor.setText((visorToDouble()/100)+"");
         }
     }//GEN-LAST:event_jButtonPercentMouseReleased
 
@@ -886,10 +870,6 @@ public class Calculator extends javax.swing.JFrame  {
     private void jButtonBackspaceMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonBackspaceMouseReleased
         jVisor.setText(jVisor.getText().substring(0, jVisor.getText().length()-1));
     }//GEN-LAST:event_jButtonBackspaceMouseReleased
-
-    private void jButtonDivideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDivideActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonDivideActionPerformed
 
     public static void main(String args[]) {
 
