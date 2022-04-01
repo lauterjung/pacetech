@@ -250,6 +250,7 @@ public class Calculator extends javax.swing.JFrame  {
         setFocusTraversalPolicyProvider(true);
         setIconImages(null);
         setLocation(new java.awt.Point(500, 200));
+        setMinimumSize(new java.awt.Dimension(358, 467));
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
         jPanel1.addKeyListener(new java.awt.event.KeyAdapter() {
