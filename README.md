@@ -3,6 +3,6 @@ Curso de programação Introdução à programação - Pacetech, com carga horá
 Conclusão: 05/04/2022  
 Linguagens utilizadas: Java, Swing, VisualG  
   
-O projeto final do curso foi o desenvolvimento de uma aplicação de calculadora:  
+O projeto final do curso foi o desenvolvimento de uma aplicação de calculadora (possui responsividade e é possível interagir com o teclado):  
   
 ![alt text](https://github.com/lauterjung/pacetech/blob/master/Calculator/Calculadora.png)
